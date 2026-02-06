@@ -1,0 +1,29 @@
+name: Mise à jour automatique des conférences
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Il se réveille seul chaque nuit à minuit
+  workflow_dispatch:   # Permet de le lancer à la main si tu veux
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v3
+
+    - name: Installation de Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Lancement du Bot de recherche
+      run: python update_conferences.py
+
+    - name: Sauvegarde des changements
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+        git add app.js
+        git commit -m "Mise à jour automatique des conférences" || echo "Aucune nouvelle conférence."
+        git push
