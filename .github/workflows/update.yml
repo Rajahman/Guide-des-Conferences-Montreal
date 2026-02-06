@@ -2,11 +2,11 @@ name: Mise à jour automatique des conférences
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Lance le bot tous les jours à minuit
-  workflow_dispatch: # Permet de lancer manuellement depuis l'onglet Actions
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 permissions:
-  contents: write # 👈 C'est cette ligne magique qui manquait !
+  contents: write  # 👈 Indispensable pour que le robot puisse travailler !
 
 jobs:
   build:
