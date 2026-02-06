@@ -20,9 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const listContainer = document.getElementById('conferences-list');
     const filtersContainer = document.getElementById('filters-container');
+    const updateBtn = document.getElementById('update-btn');
+    const updateModal = document.getElementById('update-modal');
+    const closeModal = document.getElementById('close-modal');
 
+    // -- GESTION DES FILTRES --
     function initFilters() {
-        const categories = ['Tous', 'Sciences Sociales', 'Intégration Interculturelle', 'Politique et identité nationale', 'Gouvernance collaborative & concertation'];
+        const categories = ['Tous', ...new Set(conferences.map(c => c.categorie))];
         filtersContainer.innerHTML = '';
         categories.forEach(cat => {
             const btn = document.createElement('button');
@@ -38,19 +42,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function filterByCategory(category) {
-        let filtered = conferences;
-        if (category !== 'Tous') {
-            filtered = conferences.filter(c => c.categorie === category);
+        if (category === 'Tous') {
+            renderConferences(conferences);
+        } else {
+            const filtered = conferences.filter(c => c.categorie === category);
+            renderConferences(filtered);
         }
-        renderConferences(filtered);
     }
 
+    // -- AGENDA GOOGLE --
+    function generateGoogleCalendarUrl(conf) {
+        const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+        const title = encodeURIComponent(conf.titre);
+        const details = encodeURIComponent(`${conf.description}\n\nLien: ${conf.lien}`);
+        const location = encodeURIComponent(conf.lieu);
+        const startDate = conf.date.replace(/-/g, '') + 'T090000Z';
+        const endDate = conf.dateFin.replace(/-/g, '') + 'T170000Z';
+        return `${baseUrl}&text=${title}&details=${details}&location=${location}&dates=${startDate}/${endDate}`;
+    }
+
+    // -- RENDU DES TUILES --
     function renderConferences(list) {
         listContainer.innerHTML = '';
         list.forEach(conf => {
             const tile = document.createElement('div');
             tile.className = 'tile';
             const dateStr = conf.date === conf.dateFin ? formatDate(conf.date) : `Du ${formatDate(conf.date)} au ${formatDate(conf.dateFin)}`;
+            const googleUrl = generateGoogleCalendarUrl(conf);
 
             tile.innerHTML = `
                 <div class="tile-header">
@@ -80,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="tile-description">${conf.description}</p>
                     <div class="tile-actions">
                         <a href="${conf.lien}" class="tile-link" target="_blank">Site de l'événement</a>
+                        <a href="${googleUrl}" class="btn-google" target="_blank">Ajouter à mon agenda</a>
                     </div>
                 </div>
             `;
@@ -96,6 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
         return new Date(dateString).toLocaleDateString('fr-FR', options);
     }
+
+    // -- MODAL MISE À JOUR --
+    updateBtn.onclick = () => updateModal.classList.add('active');
+    closeModal.onclick = () => updateModal.classList.remove('active');
+    window.onclick = (event) => { if (event.target == updateModal) updateModal.classList.remove('active'); };
 
     initFilters();
     renderConferences(conferences);
