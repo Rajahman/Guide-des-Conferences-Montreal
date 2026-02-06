@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord des Conférences - Montréal 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <button id="update-btn" class="update-btn" title="Mise à jour des données">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 4v6h-6"></path>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+                Mettre à jour
+            </button>
+        </div>
+        <h1>Conférences Montréal 2026</h1>
+        <p class="subtitle">Ton guide personnalisé pour la souveraineté, l'intégration et la culture.</p>
+    </header>
+
+    <div class="filters" id="filters-container">
+        <!-- Les filtres seront générés par JS -->
+    </div>
+
+    <main class="list-container" id="conferences-list">
+        <!-- Les tuiles seront générées par JS -->
+    </main>
+
+    <!-- Modal d'instruction Mise à jour -->
+    <div id="update-modal" class="modal">
+        <div class="modal-content">
+            <h2>Mise à jour des données 🚀</h2>
+            <p>Pour des raisons de sécurité, ton navigateur ne peut pas lancer le bot automatiquement.</p>
+            <div class="instruction-box">
+                <p><strong>Dossier :</strong> <code>G:\ANTIGRAVITY\RECHERCHE CONFERENCES</code></p>
+                <p><strong>Action :</strong> Cliquer sur <code>METTRE_A_JOUR.bat</code></p>
+                <p><strong>Ensuite :</strong> Une fois le script terminé, clique ci-dessous.</p>
+            </div>
+            <button id="close-modal" class="tile-link">C'est fait, rafraîchir !</button>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
