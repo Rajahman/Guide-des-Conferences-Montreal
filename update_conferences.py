@@ -11,7 +11,7 @@ SEARCH_CONFIG = {
         ],
         "Sciences Sociales": [
             "ingénierie sociale", "Médiation interculturelle", "Intégration en milieu de travail", 
-            "Gestion de la diversité en entreprise", "Psychologie de l'acculturation", , "inclusion sociale", 
+            "Gestion de la diversité en entreprise", "Psychologie de l'acculturation", "inclusion sociale", 
             "Rapports de pouvoir en entreprise", "Acfas", "recherche universitaire", "sociologie", "éducation", "Pratiques culturelles", "cohésion sociale", 
             "lien social", "capital social", "dialogue citoyen", "participation démocratique", 
             "médiation communautaire", "gestion axée sur les résultats", "données terrain"
