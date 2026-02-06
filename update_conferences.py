@@ -31,32 +31,25 @@ SEARCH_CONFIG = {
     "Année": 2026
 }
 
-# --- DONNÉES DE RECHERCHE (Conférences 2026) ---
+
+# --- TES 16 CONFÉRENCES (Sauvegardées dans le Cloud) ---
 CONFERENCES_DATA = [
-    {
-        "id": 1, "titre": "93e Congrès de l'Acfas (UQAM)", "date": "2026-05-11", "dateFin": "2026-05-15",
-        "lieu": "Montréal (UQAM)", "categorie": "Sciences Sociales",
-        "description": "Cohésion sociale, lien social et participation démocratique.",
-        "lien": "https://www.acfas.ca"
-    },
-    {
-        "id": 2, "titre": "Salon de l'immigration et de l'intégration (SIIQ)", "date": "2026-05-27", "dateFin": "2026-05-28",
-        "lieu": "Montréal", "categorie": "Intégration Interculturelle",
-        "description": "Législation en immigration et intégration au marché du travail.",
-        "lien": "https://salonimmigration.com"
-    },
-    {
-        "id": 3, "titre": "Colloque international du CELAT 2026", "date": "2026-06-15", "dateFin": "2026-06-17",
-        "lieu": "Montréal", "categorie": "Politique et identité nationale",
-        "description": "Identité québécoise contemporaine et muséologie de l'appartenance.",
-        "lien": "https://celat.ca"
-    },
-    {
-        "id": 4, "titre": "ICGPP : Governance and Public Policy", "date": "2026-08-14", "dateFin": "2026-08-14",
-        "lieu": "Montréal", "categorie": "Gouvernance collaborative & concertation",
-        "description": "Gouvernance multi-acteurs et coordination interinstitutionnelle.",
-        "lien": "https://researchfoundation.net"
-    }
+    {"id": 1, "titre": "Salon de l'immigration et de l'intégration (SIIQ)", "date": "2026-05-27", "dateFin": "2026-05-28", "lieu": "Palais des congrès de Montréal", "categorie": "Intégration Interculturelle", "description": "Législation en immigration et intégration au marché du travail.", "lien": "https://salonimmigration.com"},
+    {"id": 2, "titre": "ICILRPP : Immigration Law Reforms & Policy", "date": "2026-06-06", "dateFin": "2026-06-06", "lieu": "Montréal", "categorie": "Intégration Interculturelle", "description": "Analyse des réformes législatives en immigration au Québec.", "lien": "https://waset.org"},
+    {"id": 3, "titre": "Journée d'étude OIRQ : Laïcité et Inégalités", "date": "2026-03-24", "dateFin": "2026-03-24", "lieu": "UQAM, Montréal", "categorie": "Intégration Interculturelle", "description": "Enjeux de laïcité et de cohésion sociale à l'école.", "lien": "https://sacr.ca"},
+    {"id": 4, "titre": "Concordia : From Departure to Belonging", "date": "2026-10-15", "dateFin": "2026-10-17", "lieu": "Montréal", "categorie": "Intégration Interculturelle", "description": "Inclusion numérique et parcours migratoires.", "lien": "https://www.concordia.ca"},
+    {"id": 5, "titre": "93e Congrès de l'Acfas (UQAM)", "date": "2026-05-11", "dateFin": "2026-05-15", "lieu": "Montréal", "categorie": "Sciences Sociales", "description": "Cohésion sociale, capital social et participation démocratique.", "lien": "https://www.acfas.ca"},
+    {"id": 6, "titre": "ICEDI : Equality, Diversity and Inclusion", "date": "2026-05-18", "dateFin": "2026-05-19", "lieu": "Montréal", "categorie": "Sciences Sociales", "description": "Gestion de la diversité en entreprise et rapports de pouvoir.", "lien": "https://waset.org"},
+    {"id": 7, "titre": "IIIe Congrès international de l'ÉDIQ", "date": "2026-06-02", "dateFin": "2026-06-04", "lieu": "Québec", "categorie": "Sciences Sociales", "description": "Médiation interculturelle et psychologie de l'acculturation.", "lien": "https://www.ediq.ulaval.ca"},
+    {"id": 8, "titre": "Colloque international du CELAT 2026", "date": "2026-06-15", "dateFin": "2026-06-17", "lieu": "Montréal / Québec", "categorie": "Sciences Sociales", "description": "Médiation interculturelle et appartenance.", "lien": "https://celat.ca"},
+    {"id": 9, "titre": "Measuring Beyond 2026 (HEC Montréal)", "date": "2026-02-10", "dateFin": "2026-02-10", "lieu": "HEC Montréal", "categorie": "Sciences Sociales", "description": "Gestion axée sur les résultats et innovation responsable.", "lien": "https://www.hec.ca"},
+    {"id": 10, "titre": "Colloque FHQ : Notre histoire politique", "date": "2026-09-18", "dateFin": "2026-09-19", "lieu": "Québec", "categorie": "Politique et Identité", "description": "Récit national et transmission de la mémoire collective.", "lien": "https://histoirequebec.qc.ca"},
+    {"id": 11, "titre": "Colloque CÉRIUM : International et Recherche", "date": "2026-01-29", "dateFin": "2026-01-30", "lieu": "Montréal", "categorie": "Politique et Identité", "description": "Socialisation civique et décolonialité au Québec.", "lien": "https://cerium.umontreal.ca"},
+    {"id": 12, "titre": "Conference on Identity, Memory and Narratives", "date": "2026-04-18", "dateFin": "2026-04-18", "lieu": "Montréal", "categorie": "Politique et Identité", "description": "Transmission de la mémoire et identité nationale.", "lien": "https://researchleagues.com"},
+    {"id": 13, "titre": "ICGPP : Governance and Public Policy", "date": "2026-08-14", "dateFin": "2026-08-14", "lieu": "Montréal", "categorie": "Gouvernance collaborative", "description": "Gouvernance multi-acteurs et coordination interinstitutionnelle.", "lien": "https://conferencealerts.co.in"},
+    {"id": 14, "titre": "International Organizations & Global Governance", "date": "2026-10-12", "dateFin": "2026-10-12", "lieu": "Montréal", "categorie": "Gouvernance collaborative", "description": "Concertation internationale et gérance multi-acteurs.", "lien": "https://researchfoundation.net"},
+    {"id": 15, "titre": "Appel de projets : Programmation Citoyenne", "date": "2026-01-01", "dateFin": "2026-12-31", "lieu": "Québec", "categorie": "Gouvernance collaborative", "description": "Participation démocratique et dialogue citoyen.", "lien": "http://assnat.qc.ca"},
+    {"id": 16, "titre": "Mois de l'innovation publique", "date": "2026-06-01", "dateFin": "2026-06-30", "lieu": "Québec / Montréal", "categorie": "Gouvernance collaborative", "description": "Collaboration interinstitutionnelle et transformation publique.", "lien": "https://www.quebec.ca"}
 ]
 
 def update_app_js():
