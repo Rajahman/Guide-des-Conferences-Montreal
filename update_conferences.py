@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-# --- LE CERVEAU & LE RADAR COMPLET (Mots-clés + 25 ADRESSES) ---
+# --- LE CERVEAU & LE RADAR COMPLET ---
 SEARCH_CONFIG = {
     "Piliers": {
         "Intégration Interculturelle": ["Interculturalisme", "Intégration Interculturelle", "Politiques de citoyenneté (Québec)", "immigration", "Législation en immigration (Québec)", "politiques d’immigration", "intégration au marché du travail", "parents immigrants"],
@@ -22,10 +22,10 @@ SEARCH_CONFIG = {
     ]
 }
 
-# --- TA MÉMOIRE SACRÉE (Tes 16 Conférences Protégées) ---
+# --- TA MÉMOIRE SACRÉE (Heures ajoutées en démonstration) ---
 BASE_DATA = [
-    {"id": 1, "titre": "Salon de l'immigration et de l'intégration (SIIQ)", "date": "2026-05-27", "dateFin": "2026-05-28", "lieu": "Palais des congrès de Montréal", "categorie": "Intégration Interculturelle", "description": "Législation en immigration, intégration au marché du travail et ressources pour parents immigrants.", "lien": "https://salonimmigration.com"},
-    {"id": 2, "titre": "ICILRPP : Immigration Law Reforms & Policy", "date": "2026-06-06", "dateFin": "2026-06-06", "lieu": "Montréal", "categorie": "Intégration Interculturelle", "description": "Analyse des réformes législatives en immigration et des politiques de citoyenneté du Québec.", "lien": "https://waset.org"},
+    {"id": 1, "titre": "Salon de l'immigration et de l'intégration (SIIQ)", "date": "2026-05-27", "dateFin": "2026-05-28", "lieu": "Palais des congrès de Montréal", "categorie": "Intégration Interculturelle", "description": "Législation en immigration, intégration au marché du travail et ressources pour parents immigrants.", "lien": "https://salonimmigration.com", "heure": "09:00 - 17:00"},
+    {"id": 2, "titre": "ICILRPP : Immigration Law Reforms & Policy", "date": "2026-06-06", "dateFin": "2026-06-06", "lieu": "Montréal", "categorie": "Intégration Interculturelle", "description": "Analyse des réformes législatives en immigration et des politiques de citoyenneté du Québec.", "lien": "https://waset.org", "heure": "10:30"},
     {"id": 3, "titre": "Journée d'étude OIRQ : Laïcité et Inégalités", "date": "2026-03-24", "dateFin": "2026-03-24", "lieu": "UQAM, Montréal", "categorie": "Intégration Interculturelle", "description": "Analyse des enjeux de laïcité, de racisme et de cohésion sociale dans l'école québécoise.", "lien": "https://sacr.ca"},
     {"id": 4, "titre": "Concordia : From Departure to Belonging", "date": "2026-10-15", "dateFin": "2026-10-17", "lieu": "Université Concordia, Montréal", "categorie": "Intégration Interculturelle", "description": "Technologies numériques et parcours migratoires : inclusion, contrôle et participation citoyenne.", "lien": "https://www.concordia.ca"},
     {"id": 5, "titre": "93e Congrès de l'Acfas (UQAM)", "date": "2026-05-11", "dateFin": "2026-05-15", "lieu": "Université du Québec à Montréal (UQAM)", "categorie": "Sciences Sociales", "description": "Le plus grand rassemblement scientifique francophone. Focus : cohésion sociale, capital social et participation démocratique.", "lien": "https://www.acfas.ca"},
@@ -47,7 +47,7 @@ def update_app_js():
     if not os.path.exists(js_path): return
     with open(js_path, 'r', encoding='utf-8') as f: content = f.read()
     
-    # --- TRI CHRONOLOGIQUE AUTOMATIQUE ---
+    # Tri par date
     BASE_DATA.sort(key=lambda x: x['date'])
     
     new_data_str = "const conferences = " + json.dumps(BASE_DATA, indent=4, ensure_ascii=False) + ";"
@@ -55,7 +55,7 @@ def update_app_js():
     new_content = re.sub(pattern, new_data_str, content, flags=re.DOTALL)
     
     with open(js_path, 'w', encoding='utf-8') as f: f.write(new_content)
-    print(f"Succès : {len(BASE_DATA)} conférences triées et publiées !")
+    print(f"Robot : {len(BASE_DATA)} conférences à jour avec support de l'heure !")
 
 if __name__ == "__main__":
     update_app_js()
