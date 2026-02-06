@@ -5,65 +5,20 @@ import re
 # --- LE CERVEAU & LE RADAR COMPLET (Mots-clés + 25 ADRESSES) ---
 SEARCH_CONFIG = {
     "Piliers": {
-        "Intégration Interculturelle": [
-            "Interculturalisme", "Intégration Interculturelle", "Politiques de citoyenneté (Québec)", 
-            "immigration", "Législation en immigration (Québec)", "politiques d’immigration", 
-            "intégration au marché du travail", "parents immigrants"
-        ],
-        "Sciences Sociales": [
-            "ingénierie sociale", "Médiation interculturelle", "Intégration en milieu de travail", 
-            "Gestion de la diversité en entreprise", "Psychologie de l'acculturation", "inclusion sociale", 
-            "Rapports de pouvoir en entreprise", "Acfas", "recherche universitaire", "sociologie", "éducation", "Pratiques culturelles", "cohésion sociale", 
-            "lien social", "capital social", "dialogue citoyen", "participation démocratique", 
-            "médiation communautaire", "gestion axée sur les résultats", "données terrain"
-        ],
-        "Politique et identité nationale": [
-            "histoire du Québec", "identité nationale", "Politiques de citoyenneté", "identité québécoise",
-            "Transmission de la mémoire collective", "Identité québécoise contemporaine", "laïcité", "valeurs québécoises", 
-            "Muséologie et appartenance", "indépendance du Québec", "souveraineté", "Parti Québécois", 
-            "récit national", "mémoire collective", "patrimoine", "socialisation civique"
-        ],
-        "Gouvernance collaborative & concertation": [
-            "gouvernance multi-acteurs", "concertation", "gouvernance collaborative", "innovation sociale", "coordination interinstitutionnelle", 
-            "tables de concertation"
-        ]
+        "Intégration Interculturelle": ["Interculturalisme", "Intégration Interculturelle", "Politiques de citoyenneté (Québec)", "immigration", "Législation en immigration (Québec)", "politiques d’immigration", "intégration au marché du travail", "parents immigrants"],
+        "Sciences Sociales": ["ingénierie sociale", "Médiation interculturelle", "Intégration en milieu de travail", "Gestion de la diversité en entreprise", "Psychologie de l'acculturation", "inclusion sociale", "Rapports de pouvoir en entreprise", "Acfas", "recherche universitaire", "sociologie", "éducation", "Pratiques culturelles", "cohésion sociale", "lien social", "capital social", "dialogue citoyen", "participation démocratique", "médiation communautaire", "gestion axée sur les résultats", "données terrain"],
+        "Politique et identité nationale": ["histoire du Québec", "identité nationale", "Politiques de citoyenneté", "identité québécoise", "Transmission de la mémoire collective", "Identité québécoise contemporaine", "laïcité", "valeurs québécoises", "Muséologie et appartenance", "indépendance du Québec", "souveraineté", "Parti Québécois", "récit national", "mémoire collective", "patrimoine", "socialisation civique"],
+        "Gouvernance collaborative & concertation": ["gouvernance multi-acteurs", "concertation", "gouvernance collaborative", "innovation sociale", "coordination interinstitutionnelle", "tables de concertation"]
     },
     "Villes": ["Montréal", "Québec", "Laval", "Sherbrooke"],
     "Année": 2026,
-    
-    # --- LES 25 ADRESSES DE RECHERCHE (Zéro coupe) ---
     "Sources_Scanning": [
-        # 1. Mondial
-        "https://waset.org/social-sciences-conferences-in-montreal",
-        "https://allconferencealert.com/montreal.html",
-        "http://www.wikicfp.com/cfp/call?conference=montreal",
-        "https://internationalconferencealerts.com/canada/montreal.html",
-        # 2. Québec
-        "https://www.acfas.ca/evenements/congres",
-        "https://www.celat.ca/activites/",
-        "https://crises.uqam.ca/activites/",
-        "https://calenda.org/search?q=Quebec",
-        "https://www.banq.qc.ca/calendrier/",
-        # 3. Pôles Montréal & Social
-        "https://socialinnovationforum.ca/evenements/",
-        "https://mis.quebec/nos-activites/",
-        "https://inm.qc.ca/evenements/",
-        # 4. Affaires et Diplomatie
-        "https://www.ccmm.ca/fr/evenements/",
-        "https://www.corim.qc.ca/fr/evenements",
-        "https://congresmtl.com/calendrier/",
-        # 5. Agendas Citoyens
-        "https://www.eventbrite.ca/d/canada--montreal/conferences/",
-        "https://www.mtl.org/fr/quoi-faire/evenements",
-        "https://www.quebec.ca/immigration/services-accueil-integration/",
-        "https://www.lavitrine.com/evenements",
-        # 6. Veille Uni & Média
-        "https://calendrier.umontreal.ca/",
-        "https://evenements.uqam.ca/",
-        "https://www.mcgill.ca/events/",
-        "https://www.hec.ca/evenements/",
-        "https://www.concordia.ca/events.html",
-        "https://montreal.ca/agenda"
+        "https://waset.org/social-sciences-conferences-in-montreal", "https://allconferencealert.com/montreal.html", "http://www.wikicfp.com/cfp/call?conference=montreal", "https://internationalconferencealerts.com/canada/montreal.html",
+        "https://www.acfas.ca/evenements/congres", "https://www.celat.ca/activites/", "https://crises.uqam.ca/activites/", "https://calenda.org/search?q=Quebec", "https://www.banq.qc.ca/calendrier/",
+        "https://socialinnovationforum.ca/evenements/", "https://mis.quebec/nos-activites/", "https://inm.qc.ca/evenements/",
+        "https://www.ccmm.ca/fr/evenements/", "https://www.corim.qc.ca/fr/evenements", "https://congresmtl.com/calendrier/",
+        "https://www.eventbrite.ca/d/canada--montreal/conferences/", "https://www.mtl.org/fr/quoi-faire/evenements", "https://www.quebec.ca/immigration/services-accueil-integration/", "https://www.lavitrine.com/evenements",
+        "https://calendrier.umontreal.ca/", "https://evenements.uqam.ca/", "https://www.mcgill.ca/events/", "https://www.hec.ca/evenements/", "https://www.concordia.ca/events.html", "https://montreal.ca/agenda"
     ]
 }
 
@@ -92,13 +47,15 @@ def update_app_js():
     if not os.path.exists(js_path): return
     with open(js_path, 'r', encoding='utf-8') as f: content = f.read()
     
-    # Mise à jour avec tes 16 conférences et tes 25 sources exhaustives
+    # --- TRI CHRONOLOGIQUE AUTOMATIQUE ---
+    BASE_DATA.sort(key=lambda x: x['date'])
+    
     new_data_str = "const conferences = " + json.dumps(BASE_DATA, indent=4, ensure_ascii=False) + ";"
     pattern = r"const conferences = \[.*?\];"
     new_content = re.sub(pattern, new_data_str, content, flags=re.DOTALL)
     
     with open(js_path, 'w', encoding='utf-8') as f: f.write(new_content)
-    print(f"Robot : {len(BASE_DATA)} conférences protégées et 25 sources de veille actives !")
+    print(f"Succès : {len(BASE_DATA)} conférences triées et publiées !")
 
 if __name__ == "__main__":
     update_app_js()
